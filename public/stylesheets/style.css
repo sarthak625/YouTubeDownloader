@@ -27,6 +27,15 @@ a {
   text-align: center;
 }
 
+#download-quote{
+  color: white;
+  font-size: 2em;
+}
+
+.error{
+  color: red;
+}
+
 @media only screen and (max-width: 600px){
   .container span{
     font-size: 2em;
