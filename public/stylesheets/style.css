@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css?family=Encode+Sans+Condensed');
+
+body {
+  background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(99,99,153,1) 59%, rgba(0,212,255,1) 100%);
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.container{
+  margin-top: 15%;
+  text-align: center;
+}
+
+.container span{
+  font-size: 3em;
+  color: white;
+  font-family: 'Encode Sans Condensed', sans-serif;
+}
+
+.container .search-form {
+  padding: 40px;
+  
+  text-align: center;
+}
+
+@media only screen and (max-width: 600px){
+  .container span{
+    font-size: 2em;
+  }
+
+  .container {
+    margin-top: 40%;
+  }
+}
