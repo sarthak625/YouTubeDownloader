@@ -6,6 +6,12 @@ const fs          = require('fs');
 const ytdl        = require('ytdl-core');
 const path        = require('path');
 
+let percent = 0;
+
+router.get('/percent',(req,res)=>{
+  res.send(percent);
+})
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Download Youtube Videos Instantly' });
@@ -16,7 +22,6 @@ router.post('/', (request, response, next)=>{
   var appDir  = path.dirname(require.main.filename);
   let output  = path.join(appDir , 'downloads/video.mp4');
   let video   = ytdl(url);
-  let percent = 0;
 
   video.pipe(fs.createWriteStream(output));
   
@@ -27,16 +32,16 @@ router.post('/', (request, response, next)=>{
     res.on('data', function(data) {
       dataRead += data.length;
       percent = dataRead / totalSize;
+      percent = percent*100;
       process.stdout.cursorTo(0);
       process.stdout.clearLine(1);
       process.stdout.write((percent * 100).toFixed(2) + '% ');
+      console.log("Percent strr"+percentStr);
     });
 
     res.on('end', function() {
       process.stdout.write('\n');
       console.log('completed');
-      // response.setHeader("Content-Type", "text/html");
-      // response.redirect('/');
     });
   });
   
